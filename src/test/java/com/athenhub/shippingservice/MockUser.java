@@ -1,4 +1,4 @@
-package com.athenhub.projectinterface;
+package com.athenhub.shippingservice;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,0 +1,1 @@
+CREATE SCHEMA shipping_service IF NOT EXIST;

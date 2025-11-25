@@ -1,4 +1,4 @@
-package com.athenhub.projectinterface;
+package com.athenhub.shippingservice;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 

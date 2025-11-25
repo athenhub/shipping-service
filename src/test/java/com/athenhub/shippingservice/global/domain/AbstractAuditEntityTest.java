@@ -1,4 +1,4 @@
-package com.athenhub.projectinterface.global.domain;
+package com.athenhub.shippingservice.global.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
