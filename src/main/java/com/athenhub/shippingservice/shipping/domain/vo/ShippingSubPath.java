@@ -5,8 +5,7 @@ import jakarta.validation.constraints.NotNull;
 /**
  * 업체 등록을 위한 요청 정보 DTO.
  *
- * <p>클라이언트가 Vendor를 신규 등록할 때 필요한 필드를 전달하는 데이터 구조이다. 필드별로 {@code @NotNull} 검증 애너테이션이 적용되어 있으며, 이는
- * 등록
+ * <p>클라이언트가 Vendor를 신규 등록할 때 필요한 필드를 전달하는 데이터 구조이다. 필드별로 {@code @NotNull} 검증 애너테이션이 적용되어 있으며, 이는 등록
  * 요청 시 반드시 포함되어야 하는 필드를 의미한다.
  *
  * <h2>포함 정보</h2>
@@ -31,6 +30,4 @@ public record ShippingSubPath(
     @NotNull HubId targetHubId,
     Double expectedDistance,
     Integer expectedDuration,
-    ShippingAgentId shippingAgentId) {
-
-}
+    ShippingAgentId shippingAgentId) {}

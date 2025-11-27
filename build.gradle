@@ -52,8 +52,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'com.github.ben-manes.caffeine:caffeine'
+
     // docker-compose
-    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+//    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 
     // loki
     implementation 'com.github.loki4j:loki-logback-appender:2.0.0'
@@ -66,13 +69,16 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
     // PostgreSQL
     implementation 'org.postgresql:postgresql'
 
     // common
-    implementation 'com.athenhub:common-mvc:1.2.0'
+    implementation 'com.athenhub:common-mvc:1.4.1'
 
     // lombok
     compileOnly 'org.projectlombok:lombok'

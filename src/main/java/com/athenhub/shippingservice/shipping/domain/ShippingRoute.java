@@ -1,9 +1,10 @@
 package com.athenhub.shippingservice.shipping.domain;
 
 import com.athenhub.shippingservice.global.domain.AbstractAuditEntity;
-import com.athenhub.shippingservice.shipping.domain.vo.ShippingSubPath;
 import com.athenhub.shippingservice.shipping.domain.vo.HubId;
 import com.athenhub.shippingservice.shipping.domain.vo.ShippingAgentId;
+import com.athenhub.shippingservice.shipping.domain.vo.ShippingRouteId;
+import com.athenhub.shippingservice.shipping.domain.vo.ShippingSubPath;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -21,18 +22,17 @@ import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
 
 @Table(name = "p_shipping_route")
 @Entity
 @Getter
-@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ShippingRoute extends AbstractAuditEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Getter(AccessLevel.NONE)
   private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -60,7 +60,8 @@ public class ShippingRoute extends AbstractAuditEntity {
 
   private Integer actualDuration;
 
-  @Enumerated(EnumType.STRING) private ShippingRouteStatus status;
+  @Enumerated(EnumType.STRING)
+  private ShippingRouteStatus status;
 
   @Embedded private ShippingAgentId shippingAgentId;
 
@@ -93,6 +94,10 @@ public class ShippingRoute extends AbstractAuditEntity {
   public void updateActualValues(Double actualDistance, Integer actualDuration) {
     this.actualDistance = actualDistance;
     this.actualDuration = actualDuration;
+  }
+
+  public ShippingRouteId getId() {
+    return ShippingRouteId.of(this.id);
   }
 
   @Override

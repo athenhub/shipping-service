@@ -6,6 +6,5 @@ public record ShippingPath(
     HubId sourceHubId,
     HubId targetHubId,
     String streetAddress,
-    String detailAddress,
     List<ShippingSubPath> subPaths,
     ShippingAgentId shippingAgentId) {}

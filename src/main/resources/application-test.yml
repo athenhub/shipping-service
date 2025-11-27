@@ -8,6 +8,18 @@ spring:
       discovery:
         enabled: true
         service-id: ${CLOUD_SERVICE_ID}
+    openfeign:
+      client:
+        config:
+          default: # 모든 클라이언트에 적용
+            connectTimeout: 5000 # 연결 시도(소켓 연결) 타임아웃: 밀리초 단위. 5000ms = 5초
+            readTimeout: 5000 # 서버 응답을 기다리는 읽기 타임아웃:
+            loggerLevel: full # 로거 레벨: NONE, BASIC, HEADERS, FULL 중 하나.
+  rabbitmq:
+    host: rabbitmq.code-factory.co.kr                # RabbitMQ 브로커의 호스트명 또는 IP. 로컬 테스트 시 'localhost' 사용.
+    port: 3080                      # AMQP 포트(기본 5672). 브로커가 다른 포트를 쓰면 해당 포트로 설정.
+    username: admin
+    password: _aA123456
 
 eureka:
   instance:
@@ -19,3 +31,22 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: https://eureka.athenhub.xyz/eureka/
+
+rabbit:
+  shipping:
+    exchange: athenhub.shipping.exchange
+    queue: athenhub.shipping.queue
+    routing-key: athenhub.shipping.#
+  hub:
+    exchange: athenhub.hub.exchange
+    queue: athenhub.hub.queue
+    routing-key: athenhub.hub.routeUpdated
+  order:
+    exchange: athenhub.order.exchange
+    queue: athenhub.order.shipping.queue
+    routing-key: athenhub.order.shipping
+
+naver:
+  api:
+    key-id: ${NAVER_MAP_KEY_ID}
+    key: ${NAVER_MAP_KEY}

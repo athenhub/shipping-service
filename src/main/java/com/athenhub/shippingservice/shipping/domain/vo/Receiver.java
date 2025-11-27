@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Receiver {
-  @Embedded
-  private ReceiverId id;
+  @Embedded private ReceiverId id;
+
   @Column(name = "receiver_name", nullable = false)
   private String name;
+
   @Column(name = "receiver_slack_id", nullable = false)
   private String slackId;
 
